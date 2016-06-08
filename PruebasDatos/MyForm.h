@@ -2,6 +2,9 @@
 #include "Registrar.h"
 #include "buscarVentana.h"
 #include "ventanaTipo.h"
+#include "clasesCerveza\linkedlistBeer.h"
+#include <string>
+#include "ventanaRegCerveza.h"
 
 namespace PruebasDatos {
 
@@ -21,6 +24,7 @@ namespace PruebasDatos {
 		MyForm(void)
 		{
 			InitializeComponent();
+			cervezasGlobal = new LinkedListBeer<std::string>();
 			//
 			//TODO: Add the constructor code here
 			//
@@ -53,7 +57,9 @@ namespace PruebasDatos {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		LinkedListBeer<std::string>* cervezasGlobal;
+	private: System::Windows::Forms::Button^  button1;
+			 System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -66,6 +72,7 @@ namespace PruebasDatos {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->buscarBoton = (gcnew System::Windows::Forms::Button());
 			this->tiposBoton = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// registarBoton
@@ -107,11 +114,22 @@ namespace PruebasDatos {
 			this->tiposBoton->UseVisualStyleBackColor = true;
 			this->tiposBoton->Click += gcnew System::EventHandler(this, &MyForm::tiposBoton_Click);
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(214, 115);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(157, 23);
+			this->button1->TabIndex = 4;
+			this->button1->Text = L"Nueva cerveza";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click_1);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(433, 312);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->tiposBoton);
 			this->Controls->Add(this->buscarBoton);
 			this->Controls->Add(this->label1);
@@ -125,16 +143,20 @@ namespace PruebasDatos {
 		}
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-		Registrar^ newMDIChild = gcnew Registrar();
+		Registrar^ newMDIChild = gcnew Registrar(cervezasGlobal);
 		newMDIChild->Show();
 	}
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-		buscarVentana^ ventanaHija = gcnew buscarVentana();
+		buscarVentana^ ventanaHija = gcnew buscarVentana(cervezasGlobal);
 		ventanaHija->Show();
 	}
 	private: System::Void tiposBoton_Click(System::Object^  sender, System::EventArgs^  e) {
-		ventanaTipo^ ventanaHija = gcnew ventanaTipo();
+		ventanaTipo^ ventanaHija = gcnew ventanaTipo(cervezasGlobal);
 		ventanaHija->Show();
 	}
+private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
+	ventanaRegCerveza^ ventanaHija = gcnew ventanaRegCerveza(cervezasGlobal);
+	ventanaHija->Show();
+}
 };
 }

@@ -72,11 +72,13 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="buscarVentana.cpp" />
+    <ClCompile Include="inicio.cpp" />
     <ClCompile Include="MyForm.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</CompileAsManaged>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -94,16 +96,31 @@
       <ExceptionHandling Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Async</ExceptionHandling>
     </ClCompile>
     <ClCompile Include="Registar.cpp" />
+    <ClCompile Include="ventanaAero.cpp" />
+    <ClCompile Include="ventanaRegCerveza.cpp" />
     <ClCompile Include="ventanaTipo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="buscarVentana.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="inicio.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="LinkedList.h" />
+    <ClInclude Include="linkedlistBeer.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Node.h" />
+    <ClInclude Include="nodoCerveza.h" />
     <ClInclude Include="Registrar.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ventanaAero.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ventanaRegCerveza.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ventanaTipo.h">
@@ -114,11 +131,20 @@
     <EmbeddedResource Include="buscarVentana.resx">
       <DependentUpon>buscarVentana.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="inicio.resx">
+      <DependentUpon>inicio.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registrar.resx">
       <DependentUpon>Registrar.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventanaAero.resx">
+      <DependentUpon>ventanaAero.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ventanaRegCerveza.resx">
+      <DependentUpon>ventanaRegCerveza.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ventanaTipo.resx">
       <DependentUpon>ventanaTipo.h</DependentUpon>

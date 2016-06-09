@@ -21,6 +21,7 @@ namespace PruebasDatos {
 			InitializeComponent();
 			cervezasLocal = cervezas;
 			opcionesCerveza();
+			tipoCerveza = NULL;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -54,6 +55,7 @@ namespace PruebasDatos {
 		System::ComponentModel::Container ^components;
 	private: System::Windows::Forms::Button^  buscarBTN;
 			 LinkedListBeer<std::string>* cervezasLocal;
+			 nodoCerveza<std::string>* tipoCerveza;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -62,6 +64,7 @@ namespace PruebasDatos {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(ventanaTipo::typeid));
 			this->tiposCombo = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->listaCerveza = (gcnew System::Windows::Forms::ListBox());
@@ -70,33 +73,45 @@ namespace PruebasDatos {
 			// 
 			// tiposCombo
 			// 
+			this->tiposCombo->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->tiposCombo->FormattingEnabled = true;
-			this->tiposCombo->Location = System::Drawing::Point(108, 9);
+			this->tiposCombo->Location = System::Drawing::Point(108, 33);
 			this->tiposCombo->Name = L"tiposCombo";
-			this->tiposCombo->Size = System::Drawing::Size(145, 21);
+			this->tiposCombo->Size = System::Drawing::Size(145, 22);
 			this->tiposCombo->TabIndex = 0;
 			this->tiposCombo->SelectedIndexChanged += gcnew System::EventHandler(this, &ventanaTipo::tiposCombo_SelectedIndexChanged);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 11.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::Silver;
 			this->label1->Location = System::Drawing::Point(12, 12);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(89, 13);
+			this->label1->Size = System::Drawing::Size(152, 18);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Tipos de cerveza";
 			// 
 			// listaCerveza
 			// 
+			this->listaCerveza->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->listaCerveza->FormattingEnabled = true;
+			this->listaCerveza->ItemHeight = 14;
 			this->listaCerveza->Location = System::Drawing::Point(108, 63);
 			this->listaCerveza->Name = L"listaCerveza";
-			this->listaCerveza->Size = System::Drawing::Size(145, 251);
+			this->listaCerveza->Size = System::Drawing::Size(145, 242);
 			this->listaCerveza->TabIndex = 2;
+			this->listaCerveza->SelectedIndexChanged += gcnew System::EventHandler(this, &ventanaTipo::listaCerveza_SelectedIndexChanged);
 			// 
 			// buscarBTN
 			// 
-			this->buscarBTN->Location = System::Drawing::Point(259, 7);
+			this->buscarBTN->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buscarBTN->Location = System::Drawing::Point(259, 31);
 			this->buscarBTN->Name = L"buscarBTN";
 			this->buscarBTN->Size = System::Drawing::Size(75, 23);
 			this->buscarBTN->TabIndex = 3;
@@ -108,7 +123,8 @@ namespace PruebasDatos {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(335, 326);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(350, 326);
 			this->Controls->Add(this->buscarBTN);
 			this->Controls->Add(this->listaCerveza);
 			this->Controls->Add(this->label1);
@@ -136,7 +152,7 @@ private: System::Void buscarBTN_Click(System::Object^  sender, System::EventArgs
 	else {
 		listaCerveza->Items->Clear();
 		std::string tipo = msclr::interop::marshal_as<std::string>(tiposCombo->Text);
-		nodoCerveza<std::string>* tipoCerveza = cervezasLocal->getTipo(tipo);
+		tipoCerveza = cervezasLocal->getTipo(tipo);
 		if (tipoCerveza == NULL) { MessageBox::Show("No hay cervezas de este tipo registradas"); }
 		else {
 			LinkedList<std::string>* cervezas = tipoCerveza->getCervezas();
@@ -152,6 +168,15 @@ private: System::Void buscarBTN_Click(System::Object^  sender, System::EventArgs
 		}
 
 
+	}
+}
+private: System::Void listaCerveza_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	if (tipoCerveza != NULL) {
+		MessageBox::Show("Nombre: " + listaCerveza->Text + "\n" + "Descripción: " + msclr::interop::marshal_as<String^>(tipoCerveza->getCarac()) + "\n" +
+			"Tipo de fermentación: " + msclr::interop::marshal_as<String^>(tipoCerveza->getTipo()) + "\n" + "Tiempo de fermentación: " +
+			msclr::interop::marshal_as<String^>(tipoCerveza->getTiempo()) + "\n" + "Temperatura: " + tipoCerveza->getTemperatura().ToString() + "\n" +
+			"Color: " + msclr::interop::marshal_as<String^>(tipoCerveza->getColor()) + "\n" + "Cuerpo: " + msclr::interop::marshal_as<String^>(tipoCerveza->getCuerpo()) + "\n" +
+			"Precio: " + tipoCerveza->getPrecio().ToString());
 	}
 }
 };

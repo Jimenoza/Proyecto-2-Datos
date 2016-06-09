@@ -68,6 +68,7 @@ namespace PruebasDatos {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->registarBoton = (gcnew System::Windows::Forms::Button());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->buscarBoton = (gcnew System::Windows::Forms::Button());
@@ -77,9 +78,11 @@ namespace PruebasDatos {
 			// 
 			// registarBoton
 			// 
-			this->registarBoton->Location = System::Drawing::Point(12, 52);
+			this->registarBoton->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->registarBoton->Location = System::Drawing::Point(31, 52);
 			this->registarBoton->Name = L"registarBoton";
-			this->registarBoton->Size = System::Drawing::Size(169, 23);
+			this->registarBoton->Size = System::Drawing::Size(156, 58);
 			this->registarBoton->TabIndex = 0;
 			this->registarBoton->Text = L"Registrar tipo de Cerveza";
 			this->registarBoton->UseVisualStyleBackColor = true;
@@ -88,17 +91,24 @@ namespace PruebasDatos {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(186, 13);
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 20.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::Silver;
+			this->label1->Location = System::Drawing::Point(107, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(60, 13);
+			this->label1->Size = System::Drawing::Size(175, 32);
 			this->label1->TabIndex = 1;
 			this->label1->Text = L"Bienvenido";
+			this->label1->Click += gcnew System::EventHandler(this, &MyForm::label1_Click);
 			// 
 			// buscarBoton
 			// 
-			this->buscarBoton->Location = System::Drawing::Point(214, 52);
+			this->buscarBoton->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->buscarBoton->Location = System::Drawing::Point(193, 52);
 			this->buscarBoton->Name = L"buscarBoton";
-			this->buscarBoton->Size = System::Drawing::Size(157, 23);
+			this->buscarBoton->Size = System::Drawing::Size(157, 57);
 			this->buscarBoton->TabIndex = 2;
 			this->buscarBoton->Text = L"Buscar Cerveza";
 			this->buscarBoton->UseVisualStyleBackColor = true;
@@ -106,9 +116,11 @@ namespace PruebasDatos {
 			// 
 			// tiposBoton
 			// 
-			this->tiposBoton->Location = System::Drawing::Point(12, 116);
+			this->tiposBoton->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tiposBoton->Location = System::Drawing::Point(31, 116);
 			this->tiposBoton->Name = L"tiposBoton";
-			this->tiposBoton->Size = System::Drawing::Size(169, 23);
+			this->tiposBoton->Size = System::Drawing::Size(156, 54);
 			this->tiposBoton->TabIndex = 3;
 			this->tiposBoton->Text = L"Tipos de Cerveza";
 			this->tiposBoton->UseVisualStyleBackColor = true;
@@ -116,11 +128,13 @@ namespace PruebasDatos {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(214, 115);
+			this->button1->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(193, 115);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(157, 23);
+			this->button1->Size = System::Drawing::Size(157, 55);
 			this->button1->TabIndex = 4;
-			this->button1->Text = L"Nueva cerveza";
+			this->button1->Text = L"Agregar cerveza";
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click_1);
 			// 
@@ -128,7 +142,8 @@ namespace PruebasDatos {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(433, 312);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(402, 301);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->tiposBoton);
 			this->Controls->Add(this->buscarBoton);
@@ -136,7 +151,7 @@ namespace PruebasDatos {
 			this->Controls->Add(this->registarBoton);
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"MyForm";
+			this->Text = L"Sistema de Cervezas";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -157,6 +172,8 @@ namespace PruebasDatos {
 private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
 	ventanaRegCerveza^ ventanaHija = gcnew ventanaRegCerveza(cervezasGlobal);
 	ventanaHija->Show();
+}
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

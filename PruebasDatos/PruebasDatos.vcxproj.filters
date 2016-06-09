@@ -91,5 +91,8 @@
     <EmbeddedResource Include="ventanaAero.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
+    <EmbeddedResource Include="ventanaRegCerveza.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

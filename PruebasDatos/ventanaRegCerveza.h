@@ -63,6 +63,7 @@ namespace PruebasDatos {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(ventanaRegCerveza::typeid));
 			this->tiposCombo = (gcnew System::Windows::Forms::ComboBox());
 			this->nombreText = (gcnew System::Windows::Forms::TextBox());
 			this->saveBTN = (gcnew System::Windows::Forms::Button());
@@ -72,44 +73,59 @@ namespace PruebasDatos {
 			// 
 			// tiposCombo
 			// 
+			this->tiposCombo->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->tiposCombo->FormattingEnabled = true;
-			this->tiposCombo->Location = System::Drawing::Point(130, 12);
+			this->tiposCombo->Location = System::Drawing::Point(132, 34);
 			this->tiposCombo->Name = L"tiposCombo";
-			this->tiposCombo->Size = System::Drawing::Size(121, 21);
+			this->tiposCombo->Size = System::Drawing::Size(121, 24);
 			this->tiposCombo->TabIndex = 0;
 			// 
 			// nombreText
 			// 
-			this->nombreText->Location = System::Drawing::Point(130, 40);
+			this->nombreText->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->nombreText->Location = System::Drawing::Point(123, 86);
 			this->nombreText->Name = L"nombreText";
-			this->nombreText->Size = System::Drawing::Size(121, 20);
+			this->nombreText->Size = System::Drawing::Size(121, 23);
 			this->nombreText->TabIndex = 1;
 			// 
 			// saveBTN
 			// 
-			this->saveBTN->Location = System::Drawing::Point(130, 67);
+			this->saveBTN->BackColor = System::Drawing::Color::Silver;
+			this->saveBTN->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->saveBTN->Location = System::Drawing::Point(82, 126);
 			this->saveBTN->Name = L"saveBTN";
 			this->saveBTN->Size = System::Drawing::Size(121, 23);
 			this->saveBTN->TabIndex = 2;
 			this->saveBTN->Text = L"Guardar";
-			this->saveBTN->UseVisualStyleBackColor = true;
+			this->saveBTN->UseVisualStyleBackColor = false;
 			this->saveBTN->Click += gcnew System::EventHandler(this, &ventanaRegCerveza::saveBTN_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(30, 15);
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::OrangeRed;
+			this->label1->Location = System::Drawing::Point(14, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(94, 13);
+			this->label1->Size = System::Drawing::Size(197, 22);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Tipos de cervezas";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(12, 43);
+			this->label2->BackColor = System::Drawing::Color::Transparent;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 14.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::OrangeRed;
+			this->label2->Location = System::Drawing::Point(14, 61);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(112, 13);
+			this->label2->Size = System::Drawing::Size(230, 22);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Nombre de la Cerveza";
 			// 
@@ -117,7 +133,8 @@ namespace PruebasDatos {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(284, 261);
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			this->ClientSize = System::Drawing::Size(302, 252);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->saveBTN);

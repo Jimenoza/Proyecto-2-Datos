@@ -78,24 +78,27 @@ namespace PruebasDatos {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(buscarVentana::typeid));
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->cervezaBox = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->frame = (gcnew System::Windows::Forms::GroupBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->tipoLabel = (gcnew System::Windows::Forms::Label());
-			this->colorLabel = (gcnew System::Windows::Forms::Label());
-			this->tempeLabel = (gcnew System::Windows::Forms::Label());
+			this->descripText = (gcnew System::Windows::Forms::Label());
 			this->tiempoLabel = (gcnew System::Windows::Forms::Label());
 			this->PrecioLabel = (gcnew System::Windows::Forms::Label());
 			this->cuerpoLabel = (gcnew System::Windows::Forms::Label());
-			this->descripText = (gcnew System::Windows::Forms::Label());
+			this->colorLabel = (gcnew System::Windows::Forms::Label());
+			this->tempeLabel = (gcnew System::Windows::Forms::Label());
+			this->tipoLabel = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->frame->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(353, 16);
+			this->button1->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(322, 36);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 0;
@@ -105,22 +108,29 @@ namespace PruebasDatos {
 			// 
 			// cervezaBox
 			// 
-			this->cervezaBox->Location = System::Drawing::Point(177, 16);
+			this->cervezaBox->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->cervezaBox->Location = System::Drawing::Point(146, 38);
 			this->cervezaBox->Name = L"cervezaBox";
-			this->cervezaBox->Size = System::Drawing::Size(170, 20);
+			this->cervezaBox->Size = System::Drawing::Size(170, 21);
 			this->cervezaBox->TabIndex = 1;
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::Transparent;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::Silver;
 			this->label1->Location = System::Drawing::Point(13, 19);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(158, 13);
+			this->label1->Size = System::Drawing::Size(256, 16);
 			this->label1->TabIndex = 2;
 			this->label1->Text = L"Ingrese el nombre de la cerveza";
 			// 
 			// frame
 			// 
+			this->frame->BackColor = System::Drawing::Color::Transparent;
 			this->frame->Controls->Add(this->descripText);
 			this->frame->Controls->Add(this->tiempoLabel);
 			this->frame->Controls->Add(this->PrecioLabel);
@@ -129,87 +139,115 @@ namespace PruebasDatos {
 			this->frame->Controls->Add(this->tempeLabel);
 			this->frame->Controls->Add(this->tipoLabel);
 			this->frame->Controls->Add(this->label2);
+			this->frame->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->frame->ForeColor = System::Drawing::Color::Silver;
 			this->frame->Location = System::Drawing::Point(16, 95);
 			this->frame->Name = L"frame";
 			this->frame->Size = System::Drawing::Size(412, 191);
 			this->frame->TabIndex = 3;
 			this->frame->TabStop = false;
 			// 
-			// label2
+			// descripText
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(6, 16);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(66, 13);
-			this->label2->TabIndex = 0;
-			this->label2->Text = L"Descripción:";
-			// 
-			// tipoLabel
-			// 
-			this->tipoLabel->AutoSize = true;
-			this->tipoLabel->Location = System::Drawing::Point(196, 19);
-			this->tipoLabel->Name = L"tipoLabel";
-			this->tipoLabel->Size = System::Drawing::Size(110, 13);
-			this->tipoLabel->TabIndex = 1;
-			this->tipoLabel->Text = L"Tipo de fermentación:";
-			// 
-			// colorLabel
-			// 
-			this->colorLabel->AutoSize = true;
-			this->colorLabel->Location = System::Drawing::Point(196, 68);
-			this->colorLabel->Name = L"colorLabel";
-			this->colorLabel->Size = System::Drawing::Size(34, 13);
-			this->colorLabel->TabIndex = 3;
-			this->colorLabel->Text = L"Color:";
-			// 
-			// tempeLabel
-			// 
-			this->tempeLabel->AutoSize = true;
-			this->tempeLabel->Location = System::Drawing::Point(196, 43);
-			this->tempeLabel->Name = L"tempeLabel";
-			this->tempeLabel->Size = System::Drawing::Size(70, 13);
-			this->tempeLabel->TabIndex = 2;
-			this->tempeLabel->Text = L"Temperatura:";
+			this->descripText->AutoSize = true;
+			this->descripText->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->descripText->ForeColor = System::Drawing::Color::Silver;
+			this->descripText->Location = System::Drawing::Point(36, 43);
+			this->descripText->Name = L"descripText";
+			this->descripText->Size = System::Drawing::Size(0, 16);
+			this->descripText->TabIndex = 7;
 			// 
 			// tiempoLabel
 			// 
 			this->tiempoLabel->AutoSize = true;
+			this->tiempoLabel->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tiempoLabel->ForeColor = System::Drawing::Color::Silver;
 			this->tiempoLabel->Location = System::Drawing::Point(196, 149);
 			this->tiempoLabel->Name = L"tiempoLabel";
-			this->tiempoLabel->Size = System::Drawing::Size(121, 13);
+			this->tiempoLabel->Size = System::Drawing::Size(184, 16);
 			this->tiempoLabel->TabIndex = 6;
 			this->tiempoLabel->Text = L"Tiempo de fermentación";
 			// 
 			// PrecioLabel
 			// 
 			this->PrecioLabel->AutoSize = true;
+			this->PrecioLabel->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->PrecioLabel->ForeColor = System::Drawing::Color::Silver;
 			this->PrecioLabel->Location = System::Drawing::Point(196, 122);
 			this->PrecioLabel->Name = L"PrecioLabel";
-			this->PrecioLabel->Size = System::Drawing::Size(37, 13);
+			this->PrecioLabel->Size = System::Drawing::Size(56, 16);
 			this->PrecioLabel->TabIndex = 5;
 			this->PrecioLabel->Text = L"Precio";
 			// 
 			// cuerpoLabel
 			// 
 			this->cuerpoLabel->AutoSize = true;
+			this->cuerpoLabel->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->cuerpoLabel->ForeColor = System::Drawing::Color::Silver;
 			this->cuerpoLabel->Location = System::Drawing::Point(196, 95);
 			this->cuerpoLabel->Name = L"cuerpoLabel";
-			this->cuerpoLabel->Size = System::Drawing::Size(44, 13);
+			this->cuerpoLabel->Size = System::Drawing::Size(64, 16);
 			this->cuerpoLabel->TabIndex = 4;
 			this->cuerpoLabel->Text = L"Cuerpo:";
 			// 
-			// descripText
+			// colorLabel
 			// 
-			this->descripText->AutoSize = true;
-			this->descripText->Location = System::Drawing::Point(36, 43);
-			this->descripText->Name = L"descripText";
-			this->descripText->Size = System::Drawing::Size(0, 13);
-			this->descripText->TabIndex = 7;
+			this->colorLabel->AutoSize = true;
+			this->colorLabel->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->colorLabel->ForeColor = System::Drawing::Color::Silver;
+			this->colorLabel->Location = System::Drawing::Point(196, 68);
+			this->colorLabel->Name = L"colorLabel";
+			this->colorLabel->Size = System::Drawing::Size(56, 16);
+			this->colorLabel->TabIndex = 3;
+			this->colorLabel->Text = L"Color:";
+			// 
+			// tempeLabel
+			// 
+			this->tempeLabel->AutoSize = true;
+			this->tempeLabel->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tempeLabel->ForeColor = System::Drawing::Color::Silver;
+			this->tempeLabel->Location = System::Drawing::Point(196, 43);
+			this->tempeLabel->Name = L"tempeLabel";
+			this->tempeLabel->Size = System::Drawing::Size(104, 16);
+			this->tempeLabel->TabIndex = 2;
+			this->tempeLabel->Text = L"Temperatura:";
+			// 
+			// tipoLabel
+			// 
+			this->tipoLabel->AutoSize = true;
+			this->tipoLabel->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->tipoLabel->ForeColor = System::Drawing::Color::Silver;
+			this->tipoLabel->Location = System::Drawing::Point(196, 19);
+			this->tipoLabel->Name = L"tipoLabel";
+			this->tipoLabel->Size = System::Drawing::Size(176, 16);
+			this->tipoLabel->TabIndex = 1;
+			this->tipoLabel->Text = L"Tipo de fermentación:";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Monospac821 BT", 9.75F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::Silver;
+			this->label2->Location = System::Drawing::Point(6, 16);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(104, 16);
+			this->label2->TabIndex = 0;
+			this->label2->Text = L"Descripción:";
 			// 
 			// buscarVentana
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(440, 328);
 			this->Controls->Add(this->frame);
 			this->Controls->Add(this->label1);
